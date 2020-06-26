@@ -1,1 +1,46 @@
-<p>school-list works!</p>
+<div class="row">
+  <div class="col-12">
+    <div>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search by Name or Address"
+      />
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <div class="my-3 bg-white rounded box-shadow" *ngIf="schoolList.length > 0">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Address</th>
+            <th scope="col">Student count</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let school of schoolList; index as i">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>
+              {{ school.name }}
+            </td>
+            <td>{{ GetAddress(school.address) }}</td>
+            <td>{{ school.studentCount }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div
+      class="alert alert-warning"
+      role="alert"
+      *ngIf="schoolList.length === 0"
+    >
+      <span *ngIf="isLoading">Please wait.....</span>
+      <span *ngIf="!isLoading">No Schools Available</span>
+    </div>
+  </div>
+</div>
