@@ -1,15 +1,32 @@
 .toolbar {
-  height: 60px;
-  margin: -1px;
+  height: 180px;
+  margin: 0px;
   display: flex;
   align-items: center;
-  background-color: #1976d2;
+  background-color: #5c5484;
   color: white;
   font-weight: 600;
 }
 
 .toolbar img {
-  margin: 0 16px;
-  width: 14%;
   height: auto;
+}
+h1 {
+  text-align: center;
+  margin: 8px 0;
+}
+
+fieldset {
+  display: block;
+  margin-inline-start: 2px;
+  margin-inline-end: 2px;
+  padding-block-start: 0.35em;
+  padding-inline-start: 0.75em;
+  padding-inline-end: 0.75em;
+  padding-block-end: 0.625em;
+  min-inline-size: min-content;
+  border-width: 2px;
+  border-style: groove;
+  border-color: threedface;
+  border-image: initial;
 }
