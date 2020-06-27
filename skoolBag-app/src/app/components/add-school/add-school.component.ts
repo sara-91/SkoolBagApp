@@ -27,7 +27,6 @@ export class AddSchoolComponent implements OnInit {
   ngOnInit(): void {}
 
   get controls() {
-    debugger;
     return this.schoolForm.controls;
   }
 

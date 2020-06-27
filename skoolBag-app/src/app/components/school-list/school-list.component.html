@@ -5,6 +5,7 @@
         type="text"
         class="form-control"
         placeholder="Search by Name or Address"
+        [(ngModel)]="searchText"
       />
     </div>
   </div>
@@ -23,7 +24,12 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let school of schoolList; index as i">
+          <tr
+            *ngFor="
+              let school of schoolList | searchfilter: searchText;
+              index as i
+            "
+          >
             <th scope="row">{{ i + 1 }}</th>
             <td>
               {{ school.name }}
