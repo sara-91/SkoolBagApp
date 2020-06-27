@@ -2,6 +2,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { ReactiveFormsModule } from "@angular/forms";
 
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireDatabaseModule } from "@angular/fire/database";
@@ -19,6 +20,7 @@ import { SchoolService } from "./services/school.service";
     NgbModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
+    ReactiveFormsModule,
   ],
   providers: [SchoolService],
   bootstrap: [AppComponent],
