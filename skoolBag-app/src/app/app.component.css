@@ -1,15 +1,17 @@
 .toolbar {
-  height: 60px;
-  margin: -8px;
+  height: 125px;
+  margin: 0px;
   display: flex;
   align-items: center;
-  background-color: #1976d2;
+  background-color: #5c5484;
   color: white;
   font-weight: 600;
 }
 
 .toolbar img {
-  margin: 0 16px;
-  width: 14%;
   height: auto;
+}
+h1 {
+  text-align: center;
+  margin: 8px 0;
 }

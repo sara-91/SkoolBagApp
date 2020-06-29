@@ -1,5 +1,24 @@
 <!-- header -->
 <div class="toolbar" role="banner">
-  <img src="https://skoolbag.com.au//skoolbagapp/images/logo-skoolbag.png" />
-  <span><h1>Portal</h1></span>
+  <div class="container">
+    <img src="https://skoolbag.com.au//skoolbagapp/images/logo-skoolbag.png" />
+  </div>
+</div>
+<!-- body -->
+<div class="container">
+  <div>
+    <span><h1>School Details</h1></span>
+    <ngb-tabset>
+      <ngb-tab title="School List">
+        <ng-template ngbTabContent>
+          <app-school-list></app-school-list>
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab title="Add New School">
+        <ng-template ngbTabContent>
+          <app-add-school></app-add-school>
+        </ng-template>
+      </ngb-tab>
+    </ngb-tabset>
+  </div>
 </div>

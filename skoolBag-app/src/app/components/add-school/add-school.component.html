@@ -1,0 +1,155 @@
+<div class="row">
+  <div class="col-12 custom-form">
+    <form class="infor-input" [formGroup]="schoolForm" (ngSubmit)="addSchool()">
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <label><b>School Name*</b></label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              formControlName="name"
+            />
+            <span
+              class="text-danger"
+              *ngIf="
+                controls.name.touched && controls.name.hasError('required')
+              "
+            >
+              School name is required</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="row" formGroupName="address">
+        <div class="col-12">
+          <label><b>Address</b></label>
+
+          <div class="form-group">
+            <div>
+              <label>Street*</label>
+              <input
+                type="text"
+                class="form-control"
+                id="street"
+                formControlName="street"
+              />
+              <span
+                class="text-danger"
+                *ngIf="
+                  controls.address.controls.street.touched &&
+                  controls.address.controls.street.hasError('required')
+                "
+              >
+                Street is required</span
+              >
+            </div>
+
+            <div>
+              <label>Suburb*</label>
+              <input
+                type="text"
+                class="form-control"
+                id="suburb"
+                formControlName="suburb"
+              />
+              <span
+                class="text-danger"
+                *ngIf="
+                  controls.address.controls.suburb.touched &&
+                  controls.address.controls.suburb.hasError('required')
+                "
+              >
+                Suburb is required</span
+              >
+            </div>
+
+            <div>
+              <label>State*</label>
+              <input
+                type="text"
+                class="form-control"
+                id="state"
+                formControlName="state"
+              />
+              <span
+                class="text-danger"
+                *ngIf="
+                  controls.address.controls.state.touched &&
+                  controls.address.controls.state.hasError('required')
+                "
+              >
+                State is required</span
+              >
+            </div>
+
+            <div>
+              <label>Postcode*</label>
+              <input
+                type="text"
+                class="form-control"
+                id="postcode"
+                formControlName="postcode"
+              />
+              <span
+                class="text-danger"
+                *ngIf="
+                  controls.address.controls.postcode.touched &&
+                  controls.address.controls.postcode.hasError('required')
+                "
+              >
+                Postcode is required</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <label><b>Student Count*</b></label>
+            <input
+              type="number"
+              min="0"
+              step="1"
+              class="form-control"
+              id="studentCount"
+              formControlName="studentCount"
+              placeholder="0"
+            />
+            <span
+              class="text-danger"
+              *ngIf="
+                controls.studentCount.touched &&
+                controls.studentCount.hasError('required')
+              "
+            >
+              Student Count is required</span
+            >
+            <span
+              class="text-danger"
+              *ngIf="
+                controls.studentCount.touched &&
+                controls.studentCount.hasError('min')
+              "
+            >
+              Number should be greater than 0</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <button
+        type="submit"
+        id="btnSave"
+        class="btn btn-outline-secondary"
+        [disabled]="!schoolForm.valid"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</div>
