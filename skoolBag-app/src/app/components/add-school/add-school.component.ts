@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { School } from "src/app/models/school";
 import { SchoolService } from "src/app/services/school.service";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: "app-add-school",
@@ -11,7 +12,11 @@ import { SchoolService } from "src/app/services/school.service";
 export class AddSchoolComponent implements OnInit {
   schoolForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private schoolService: SchoolService) {
+  constructor(
+    private fb: FormBuilder,
+    private schoolService: SchoolService,
+    private toastr: ToastrService
+  ) {
     this.schoolForm = this.fb.group({
       name: ["", [Validators.required]],
       address: this.fb.group({
@@ -41,11 +46,29 @@ export class AddSchoolComponent implements OnInit {
         postcode: this.schoolForm.value.address.postcode,
       },
     };
-    this.schoolService.addSchool(newSchool);
-    this.reset();
+    this.schoolService
+      .addSchool(newSchool)
+      .then((res) => {
+        if (res.collection.length === 1) {
+          console.log(res);
+          this.reset();
+          this.showSuccess();
+        }
+      })
+      .catch((err) => {
+        this.showError();
+      });
   }
 
   reset() {
     this.schoolForm.reset();
+  }
+
+  showSuccess() {
+    this.toastr.success("School saved", "Success");
+  }
+
+  showError() {
+    this.toastr.error("Error occurred", "Error");
   }
 }
