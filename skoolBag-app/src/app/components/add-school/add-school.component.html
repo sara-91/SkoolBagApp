@@ -39,8 +39,8 @@
               <span
                 class="text-danger"
                 *ngIf="
-                  controls.address.controls.street.touched &&
-                  controls.address.controls.street.hasError('required')
+                  schoolForm.get('address.street').touched &&
+                  schoolForm.get('address.street').hasError('required')
                 "
               >
                 Street is required</span
@@ -58,8 +58,8 @@
               <span
                 class="text-danger"
                 *ngIf="
-                  controls.address.controls.suburb.touched &&
-                  controls.address.controls.suburb.hasError('required')
+                  schoolForm.get('address.suburb').touched &&
+                  schoolForm.get('address.suburb').hasError('required')
                 "
               >
                 Suburb is required</span
@@ -77,8 +77,8 @@
               <span
                 class="text-danger"
                 *ngIf="
-                  controls.address.controls.state.touched &&
-                  controls.address.controls.state.hasError('required')
+                  schoolForm.get('address.state').touched &&
+                  schoolForm.get('address.state').hasError('required')
                 "
               >
                 State is required</span
@@ -96,8 +96,8 @@
               <span
                 class="text-danger"
                 *ngIf="
-                  controls.address.controls.postcode.touched &&
-                  controls.address.controls.postcode.hasError('required')
+                  schoolForm.get('address.postcode').touched &&
+                  schoolForm.get('address.postcode').hasError('required')
                 "
               >
                 Postcode is required</span
