@@ -22,7 +22,7 @@ export class SearchFilterPipe implements PipeTransform {
           item.address.street.toLowerCase().includes(searchText) ||
           item.address.suburb.toLowerCase().includes(searchText) ||
           item.address.state.toLowerCase().includes(searchText) ||
-          item.address.postcode.toLowerCase().includes(searchText)
+          item.address.postcode.includes(searchText)
         );
       }
       return false;
