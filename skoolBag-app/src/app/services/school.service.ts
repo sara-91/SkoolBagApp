@@ -8,7 +8,15 @@ export class SchoolService {
   constructor(private firestore: AngularFirestore) {}
 
   addSchool(newSchool: School) {
-    return this.firestore.collection("schools").add(newSchool);
+    return new Promise<any>((resolve, reject) => {
+      this.firestore
+        .collection("schools")
+        .add(newSchool)
+        .then(
+          (res) => resolve(res),
+          (err) => reject(err)
+        );
+    });
   }
 
   getSchools(): Observable<any> {

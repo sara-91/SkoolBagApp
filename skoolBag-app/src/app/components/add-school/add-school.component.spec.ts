@@ -43,11 +43,15 @@ describe("AddSchoolComponent", () => {
     fixture.detectChanges();
   });
 
+  afterEach(() => {
+    fixture.destroy();
+  });
+
   it("should create", () => {
     expect(component).toBeTruthy();
   });
 
-  fit("should trigger AddSchool method when click on Save button", () => {
+  xit("should call addSchool method when click on Save button", () => {
     component.schoolForm.controls["name"].setValue(school.name);
     component.schoolForm.controls["studentCount"].setValue(school.studentCount);
     component.schoolForm.get("address.street").setValue(school.address.street);
@@ -59,17 +63,25 @@ describe("AddSchoolComponent", () => {
 
     fixture.detectChanges();
 
-    spyOn(component, "addSchool").and.callThrough();
+    let spy = spyOn(component, "addSchool").and.callThrough();
 
-    //let btn = fixture.debugElement.nativeElement.querySelector("#btnSave");
     let btn = fixture.debugElement.query(By.css("button"));
-    btn.triggerEventHandler("click", null);
+    btn.nativeElement.click();
+    //btn.triggerEventHandler("click", null);
     fixture.detectChanges();
 
-    expect(component.addSchool).toHaveBeenCalledTimes(1);
+    expect(spy).toHaveBeenCalled();
   });
 
-  it("should be invalid when no data entered", () => {
+  it("should be invalid when empty", () => {
     expect(component.schoolForm.invalid).toBeTruthy();
+  });
+
+  it("should give required error for name", () => {
+    component.schoolForm.controls["name"].setValue("");
+
+    expect(
+      component.schoolForm.controls["name"].hasError("required")
+    ).toBeTruthy();
   });
 });

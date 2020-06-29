@@ -3,6 +3,8 @@ import { NgModule } from "@angular/core";
 
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { ToastrModule } from "ngx-toastr";
 
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireDatabaseModule } from "@angular/fire/database";
@@ -28,6 +30,12 @@ import { SearchFilterPipe } from "./pipes/search.filter.pipe";
     AngularFireDatabaseModule,
     ReactiveFormsModule,
     FormsModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot({
+      timeOut: 2000,
+      positionClass: "toast-bottom-right",
+      closeButton: true,
+    }), // ToastrModule added
   ],
   providers: [SchoolService],
   bootstrap: [AppComponent],
